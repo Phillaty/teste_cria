@@ -11,26 +11,21 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-
-const uri = "mongodb+srv://Phillaty:54704523@cluster0.bxid8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
-
-client.once('open', () => {
-     console.log("MONGODB DATABASE CONNECTION ESTABLISHED SUCCESSFULLY");
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true}
+);
+const connection = mongoose.connection;
+connection.once('open', () => {
+    console.log("MONGODB DATABASE CONNECTION ESTABLISHED SUCCESSFULLY");
 })
 
-// const uri = process.env.ATLAS_URI;
-// mongoose.connect(uri, {useNewUrlParser: true, useCreateIndex: true}
-// );
-// const connection = mongoose.connection;
-// connection.once('open', () => {
-//     console.log("MONGODB DATABASE CONNECTION ESTABLISHED SUCCESSFULLY");
-// })
+const materiaisRouter = require('./routes/material');
+const usersRouter = require('./routes/user');
+const brandRouter = require('./routes/brand');
+
+app.use('/material', materiaisRouter);
+app.use('/users', usersRouter);
+app.use('/brand', brandRouter);
 
 app.listen(port, () => {
     console.log(`Servidor na porta: ${port}`);

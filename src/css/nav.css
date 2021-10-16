@@ -1,0 +1,96 @@
+body{
+    background: url('../img/Gradient_background_with_geometric_elements.jpg');
+    background-size: 100% auto;
+    height: 100% !important;
+    /* backdrop-filter: brightness(70%); */
+}
+
+@media (max-width:1264px) {
+    body{
+        background-size: auto 100%;
+    }
+}
+
+html{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.css-navbar{
+    z-index: 9999;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    position: fixed;
+    width: 80px;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.267);
+    backdrop-filter: blur(10px);
+    color: rgba(255, 255, 255, 0.863);
+    transition: 0.1s;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.089);
+}
+
+@media (max-width:1010px) {
+    .css-navbar{
+        width: 100%;
+        height: auto !important;
+        flex-direction: row;
+        bottom: 0;
+    }
+}
+
+.css-navbar-item{
+    height: 60px;
+    padding: 20px 30px 20px 30px;
+    display: flex;
+    transition: 0.2s;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.863);
+    text-decoration: none;
+}
+
+.css-navbar-item:hover{
+    color: rgba(255, 255, 255, 0.863);
+    text-decoration: none;
+}
+
+.css-navbar-item p{
+    margin: 0;
+    display: none;
+    overflow: hidden;
+    text-align: initial;
+}
+
+@media (min-width:1010px) {
+    .css-navbar-item p{
+        animation-name: p-anim;
+        animation-fill-mode: forwards;
+        animation-duration: 0.1s;
+        margin-top: -4px;
+    }
+
+    .css-navbar:hover{
+        background-color: rgba(0, 0, 0, 0.336);
+        width: 250px;
+        transition: 0.1s;
+    }
+    
+    .css-navbar-item:hover{
+        background-color: rgba(156, 156, 156, 0.11);
+        transition: 0.2s;
+    }
+
+    .css-navbar:hover .css-navbar-item p{
+        display: block;
+        margin-left: 10px;
+    }
+}
+
+@keyframes p-anim {
+    from{width: 0%; opacity: 0;}
+    to{width: 100%; opacity: 1;}
+}
+
