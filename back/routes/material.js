@@ -36,7 +36,7 @@ router.route('/:id').get((req, res) => {
 });
 
 router.route('/search/:var').get((req, res) => {
-  Materiais.find({ name: {$regex : req.params.var}})
+  Materiais.find({ name: { $regex: req.params.var } })
     .then(resp => res.json(resp))
     .catch(err => res.status(400).json('Error: ' + err));
 });

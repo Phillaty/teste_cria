@@ -16,11 +16,11 @@ function App() {
       <Navbar />
       <br />
       <div className="corpo">
-      <Route path="/" exact component={ListarMateriais} />
-      <Route path="/edit/:id" component={EditMaterial} />
-      <Route path="/create" component={CreateMaterial} />
-      <Route path="/materiais" component={MaterialList} />
-      <Route path="/brand" component={CreateBrand} />
+        <Route path="/" exact component={ListarMateriais} />
+        <Route path="/edit/:id" component={EditMaterial} />
+        <Route path="/create" component={CreateMaterial} />
+        <Route path="/materiais" component={MaterialList} />
+        <Route path="/brand" component={CreateBrand} />
       </div>
     </Router>
   );

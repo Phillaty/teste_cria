@@ -78,23 +78,23 @@ export default class MaterialList extends Component {
             search: a.target.value
         })
 
-        if(a.target.value !== ''){
-        axios.get('http://localhost:5000/material/search/' + a.target.value)
-            .then(res => {
-                console.log(res.data)
-                this.setState({
-                    material: res.data
-                })
-            }
-            );
-        }else{
+        if (a.target.value !== '') {
+            axios.get('http://localhost:5000/material/search/' + a.target.value)
+                .then(res => {
+                    console.log(res.data)
+                    this.setState({
+                        material: res.data
+                    })
+                }
+                );
+        } else {
             axios.get('http://localhost:5000/material/')
-            .then(res => {
-                this.setState({ material: res.data })
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+                .then(res => {
+                    this.setState({ material: res.data })
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
         }
 
 
@@ -116,7 +116,7 @@ export default class MaterialList extends Component {
                     </button>
                 </div>
 
-                
+
 
                 <div class="modal fade" id="ModalCadastro" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                     <div className="fundo"></div>

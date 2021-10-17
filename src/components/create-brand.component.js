@@ -120,22 +120,22 @@ export default class CreateBrand extends Component {
                 <div className="duo">
                     <div className="second tableFix">
                         {this.state.brands.length > 0 &&
-                                <table className="table table-light table-striped">
-                                    <thead className="thead-light">
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Descrição</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
+                            <table className="table table-light table-striped">
+                                <thead className="thead-light">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Descrição</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
 
 
-                                    <tbody>
-                                        {this.brandList()}
-                                    </tbody>
+                                <tbody>
+                                    {this.brandList()}
+                                </tbody>
 
 
-                                </table>
+                            </table>
                         }
                         {this.state.brands.length === 0 &&
                             <p className="notFound">

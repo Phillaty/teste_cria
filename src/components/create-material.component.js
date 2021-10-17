@@ -149,9 +149,9 @@ export default class CreateExercise extends Component {
                     </div>
 
                     <div class="form-check form-switch">
-                        <input 
-                            class="form-check-input" 
-                            type="checkbox" 
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
                             role="switch"
                             checked={this.state.active}
                             onChange={this.onChangeActive} />

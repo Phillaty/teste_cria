@@ -28,10 +28,10 @@ export default class Navbar extends Component {
                 <Link to="/create" className="css-navbar-item">
                     <i class="fas fa-plus"></i>
                     <p>Cadastrar materiais</p>
-                </Link>                
+                </Link>
 
             </div>
-            
+
         );
     }
-} 
+}
