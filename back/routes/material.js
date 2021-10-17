@@ -49,7 +49,7 @@ router.route('/update/:id').post((req, res) => {
       resp.brand = req.body.brand;
       resp.image = req.body.image;
       resp.active = req.body.active;
-      resp.dateInativated = Date.parse(req.body.date);
+      resp.dateInativated = Date.parse(req.body.dateInativated);
 
       resp.save()
         .then(() => res.json('Material atualizado!'))

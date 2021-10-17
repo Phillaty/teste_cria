@@ -50,3 +50,97 @@
 .modal-header{
     padding-right: 20px;
 }
+
+.duo {
+    float: left;
+    display: flex;
+    width: 50%;
+    height: 90%;
+}
+
+.duo:last-child{
+    display: block;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.duo .second{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.duo form{
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid rgb(182, 182, 182);
+    width: 100%;
+    padding-right: 10%;
+    padding-left: 10%;
+    height: 100%;
+}
+
+.createBrand{
+    height: 100%;
+}
+
+.corpo h3{
+    text-align: center;
+    margin-bottom: 3%;
+    color: rgb(68, 68, 68);
+}
+
+.textInput{
+    border: 0;
+    border-bottom: 1px solid rgb(248 189 97);
+    border-radius: 4px 4px 0 0;
+    padding: 10px 10px;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.068);
+}
+
+.textInput:focus{
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid rgb(248 189 97);
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.253);
+}
+
+.groupClass{
+    margin-bottom: 10px;
+}
+
+.groupButton{
+    display: flex;
+    justify-content: center;
+}
+
+.groupButton input, .groupButton button{
+    width: 100%;
+    background-color: rgb(241 152 96);
+    transition: 0.2s;
+    color: white;
+}
+
+.groupButton input:hover, .groupButton button:hover{
+    opacity: 0.7;
+    transition: 0.2s;
+}
+
+.groupButton input:focus, .groupButton button:focus{
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.253);
+}
+
+.form-switch{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.createMaterial{
+    padding: 1% 10%;
+}
+
+.centerMe{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

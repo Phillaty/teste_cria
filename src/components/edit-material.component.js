@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import axios from "axios";
 
-export default class CreateExercise extends Component {
-
+export default class EditMaterial extends Component {
     constructor(props) {
         super(props);
 
@@ -23,12 +22,28 @@ export default class CreateExercise extends Component {
             image: '',
             active: false,
             dateInativated: new Date(),
-            brandItem: []
+            brandItem: [],
         }
 
+        console.log(props);
     }
 
     componentDidMount() {
+        axios.get('http://localhost:5000/material/' + this.props.id)
+            .then(response => {
+                this.setState({
+                    name: response.data.name,
+                    description: response.data.description,
+                    brand: response.data.brand,
+                    image: response.data.image,
+                    active: response.data.active,
+                    dateInativated: new Date(response.data.dateInativated)
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+
         axios.get('http://localhost:5000/brand/')
             .then(res => {
                 if (res.data.length > 0) {
@@ -38,6 +53,7 @@ export default class CreateExercise extends Component {
                     })
                 }
             });
+
     }
 
     onChangename(e) {
@@ -81,26 +97,26 @@ export default class CreateExercise extends Component {
 
         const materiais = {
             name: this.state.name,
-            description: this.state.desciption,
+            description: this.state.description,
             brand: this.state.brand,
             image: this.state.image,
             active: this.state.active,
             dateInativated: this.state.dateInativated
         }
 
-        axios.post('http://localhost:5000/material/add', materiais)
+        console.log(this.props.id);
+
+        axios.post('http://localhost:5000/material/update/' + this.props.id, materiais)
             .then(res => console.log(res.data));
 
-        console.log(materiais);
-
-        window.location = '/';
+        window.location = '/materiais';
     }
 
     render() {
         return (
             <div>
-                <h3>Criar material</h3>
-                <form onSubmit={this.onSubmit} className="createMaterial">
+                <h3>Edit Exercise Log</h3>
+                <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Nome: </label>
                         <input type="text"
@@ -147,9 +163,9 @@ export default class CreateExercise extends Component {
                     </div>
 
                     <div class="form-check form-switch">
-                        <input 
-                            class="form-check-input" 
-                            type="checkbox" 
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
                             role="switch"
                             checked={this.state.active}
                             onChange={this.onChangeActive} />

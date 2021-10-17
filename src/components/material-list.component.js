@@ -2,17 +2,39 @@ import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import CreateMaterial from "./create-material.component";
+import EditMaterial from "./edit-material.component";
 
-const Exercise = props => (
+const Materiais = props => (
     <tr>
-        <td>{props.exercise.name}</td>
-        <td>{props.exercise.description}</td>
-        <td>{props.exercise.brand}</td>
-        <td>{props.exercise.image}</td>
-        <td>{props.exercise.active ? 'ativado' : 'desativado'}</td>
-        <td>{props.exercise.dateInativated.substring(0, 10)}</td>
+        <td>{props.list.name}</td>
+        <td>{props.list.description}</td>
+        <td>{props.list.brand}</td>
+        {/* <td>{props.list.image}</td> */}
+        <td>{props.list.active ? 'ativado' : 'desativado'}</td>
+        <td>{props.list.dateInativated.substring(0, 10)}</td>
         <td>
-            <Link to={"/edit/" + props.exercise._id}>edit</Link> | <a href="#" onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</a>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target={"#aaa"+ props.list._id}>
+                Editar
+            </button>
+
+            <div class="modal fade" id={"aaa"+ props.list._id} tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div className="fundo"></div>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <EditMaterial id={props.list._id} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-danger ms-1" onClick={() => { props.deleteMaterial(props.list._id) }}>
+                Deletar
+            </button>
+            
         </td>
     </tr>
 )
@@ -22,9 +44,9 @@ export default class MaterialList extends Component {
     constructor(props) {
         super(props);
 
-        this.deleteExercise = this.deleteExercise.bind(this);
+        this.deleteMaterial = this.deleteMaterial.bind(this);
 
-        this.state = { material: [], users: [], brand : '' };
+        this.state = { material: [], users: [], brand: '' };
     }
 
     componentDidMount() {
@@ -47,7 +69,7 @@ export default class MaterialList extends Component {
             });
     }
 
-    deleteExercise(id) {
+    deleteMaterial(id) {
         axios.delete('http://localhost:5000/material/' + id)
             .then(res => console.log(res.data));
         this.setState({
@@ -56,19 +78,21 @@ export default class MaterialList extends Component {
     }
 
     exerciseList() {
-        return this.state.material.map(currentexercise => {
-            return <Exercise exercise={currentexercise} deleteExercise={this.deleteExercise} key={currentexercise._id} />;
+        return this.state.material.map(res => {
+            return <Materiais list={res} deleteMaterial={this.deleteMaterial}  key={res._id} />;
         })
     }
 
     render() {
         return (
             <div>
-                <h3>Logged Exercises</h3>
+                <h3>Materiais</h3>
 
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalCadastro">
-                    Launch demo modal
-                </button>
+                <div className="mb-5 groupButton">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalCadastro">
+                        Adicionar material
+                    </button>
+                </div>
 
                 <div class="modal fade" id="ModalCadastro" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                     <div className="fundo"></div>
@@ -88,10 +112,11 @@ export default class MaterialList extends Component {
                 <table className="table">
                     <thead className="thead-light">
                         <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Duration</th>
-                            <th>Date</th>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Marca</th>
+                            <th>Status</th>
+                            <th>Data da inativação</th>
                             <th>Actions</th>
                         </tr>
                     </thead>

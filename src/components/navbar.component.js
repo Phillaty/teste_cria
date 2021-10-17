@@ -34,12 +34,12 @@ export default class Navbar extends Component {
                     <p>Usuário</p>
                 </Link>
 
-                <Link to="/materiais" className="css-navbar-item">
+                <Link to="/" className="css-navbar-item">
                     <i class="fas fa-palette"></i>
                     <p>Ver materiais</p>
                 </Link>
 
-                <Link to="/" className="css-navbar-item">
+                <Link to="/materiais" className="css-navbar-item">
                     <i class="fas fa-user-cog"></i>
                     <p>Administrar materiais</p>
                 </Link>
