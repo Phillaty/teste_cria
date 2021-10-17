@@ -7,9 +7,7 @@ import Navbar from "./components/navbar.component"
 import MaterialList from "./components/material-list.component";
 import EditMaterial from "./components/edit-material.component";
 import CreateMaterial from "./components/create-material.component";
-import CreateUser from "./components/create-user.component";
 import ListarMateriais from "./components/materiais-list";
-import User from './components/user';
 import CreateBrand from './components/create-brand.component';
 
 function App() {
@@ -21,9 +19,7 @@ function App() {
       <Route path="/" exact component={ListarMateriais} />
       <Route path="/edit/:id" component={EditMaterial} />
       <Route path="/create" component={CreateMaterial} />
-      <Route path="/user" component={CreateUser} />
       <Route path="/materiais" component={MaterialList} />
-      <Route path="/usuario" component={User} />
       <Route path="/brand" component={CreateBrand} />
       </div>
     </Router>

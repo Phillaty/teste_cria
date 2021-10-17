@@ -49,7 +49,7 @@ export default class EditMaterial extends Component {
                 if (res.data.length > 0) {
                     this.setState({
                         brandItem: res.data.map(user => user.name),
-                        brand: res.data[0].name
+                        brand: this.state.brand === '' ? res.data[0].name : this.state.brand
                     })
                 }
             });
@@ -144,7 +144,7 @@ export default class EditMaterial extends Component {
                         </select>
                     </div>
                     <div className="form-group">
-                        <label>Description: </label>
+                        <label>Descrição: </label>
                         <input type="text"
                             required
                             className="form-control textInput"

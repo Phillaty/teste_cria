@@ -20,11 +20,9 @@ connection.once('open', () => {
 })
 
 const materiaisRouter = require('./routes/material');
-const usersRouter = require('./routes/user');
 const brandRouter = require('./routes/brand');
 
 app.use('/material', materiaisRouter);
-app.use('/users', usersRouter);
 app.use('/brand', brandRouter);
 app.use('/uploads', express.static('img'));
 

@@ -35,6 +35,11 @@
     .card{
         width: 32%;
     }
+ 
+    .search{
+        margin-top: 0 !important;
+    }
+
 }
 
 @media (max-width:916px) {
@@ -203,4 +208,8 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.noBreak{
+    white-space: nowrap;
 }

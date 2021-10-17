@@ -13,7 +13,6 @@ export default class CreateExercise extends Component {
         this.onChangeBrand = this.onChangeBrand.bind(this);
         this.onChangeImage = this.onChangeImage.bind(this);
         this.onChangeActive = this.onChangeActive.bind(this);
-        this.onChangeDate = this.onChangeDate.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
@@ -22,7 +21,6 @@ export default class CreateExercise extends Component {
             brand: '',
             image: '',
             active: false,
-            dateInativated: new Date(),
             brandItem: []
         }
 
@@ -84,16 +82,15 @@ export default class CreateExercise extends Component {
             description: this.state.desciption,
             brand: this.state.brand,
             image: this.state.image,
-            active: this.state.active,
-            dateInativated: this.state.dateInativated
+            active: this.state.active
         }
 
-        // axios.post('http://localhost:5000/material/add', materiais)
-        //     .then(res => console.log(res.data));
+        axios.post('http://localhost:5000/material/add', materiais)
+            .then(res => console.log(res.data));
 
         console.log(materiais);
 
-        // window.location = '/materiais';
+        window.location = '/materiais';
     }
 
     render() {
@@ -142,7 +139,7 @@ export default class CreateExercise extends Component {
                         <label>Imagem: </label>
                         <input
                             type="text"
-                            className="form-control"
+                            className="form-control textInput"
                             placeholder="Link da imagem..."
                             value={this.state.image}
                             onChange={this.onChangeImage}

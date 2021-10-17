@@ -126,7 +126,7 @@ export default class CreateBrand extends Component {
                                     <thead className="thead-light">
                                         <tr>
                                             <th>Name</th>
-                                            <th>Description</th>
+                                            <th>Descrição</th>
                                             <th></th>
                                         </tr>
                                     </thead>

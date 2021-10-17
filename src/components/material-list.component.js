@@ -11,7 +11,7 @@ const Materiais = props => (
         <td>{props.list.brand}</td>
         <td>{props.list.active ? 'ativado' : 'desativado'}</td>
         <td>{props.list.active ? '-------' : props.list.updatedAt.substring(0, 10)}</td>
-        <td>
+        <td className="noBreak">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target={"#aaa" + props.list._id}>
                 Editar
             </button>
