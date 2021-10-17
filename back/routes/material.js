@@ -13,13 +13,15 @@ router.route('/add').post((req, res) => {
   const brand = req.body.brand;
   const image = req.body.image;
   const active = req.body.active;
+  const dateInativated = Date.parse(req.body.dateInativated);
 
   const newMaterial = new Materiais({
     name,
     description,
     brand,
     image,
-    active
+    active,
+    dateInativated
   });
 
   newMaterial.save()
@@ -59,6 +61,7 @@ router.route('/update/:id').post((req, res) => {
       resp.brand = req.body.brand;
       resp.image = req.body.image;
       resp.active = req.body.active;
+      resp.dateInativated = Date.parse(req.body.dateInativated);
 
       resp.save()
         .then(() => res.json('Material atualizado!'))

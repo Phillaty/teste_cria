@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import CreateMaterial from "./create-material.component";
 import EditMaterial from "./edit-material.component";
 
@@ -46,7 +45,7 @@ export default class MaterialList extends Component {
         this.deleteMaterial = this.deleteMaterial.bind(this);
         this.onSearch = this.onSearch.bind(this);
 
-        this.state = { material: [], users: [], brand: '' };
+        this.state = { material: [], brand: '' };
     }
 
     componentDidMount() {
@@ -56,16 +55,6 @@ export default class MaterialList extends Component {
             })
             .catch((err) => {
                 console.log(err);
-            });
-
-        axios.get('http://localhost:5000/users/')
-            .then(res => {
-                if (res.data.length > 0) {
-                    this.setState({
-                        users: res.data.map(user => user.name),
-                        brand: res.data[0].name
-                    })
-                }
             });
     }
 
@@ -117,15 +106,17 @@ export default class MaterialList extends Component {
             <div>
                 <h3>Materiais</h3>
 
-                <div className="mb-5 groupButton">
+                <div className="search">
+                    <input type="text" value={this.state.search} onChange={this.onSearch} placeholder="Pesquisar..." />
+                </div>
+
+                <div className="mb-2 groupButton buttonAdd">
                     <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalCadastro">
                         Adicionar material
                     </button>
                 </div>
 
-                <div className="search">
-                    <input type="text" value={this.state.search} onChange={this.onSearch} placeholder="Pesquisar..." />
-                </div>
+                
 
                 <div class="modal fade" id="ModalCadastro" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                     <div className="fundo"></div>

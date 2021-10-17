@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
 export default class EditMaterial extends Component {
@@ -22,10 +21,11 @@ export default class EditMaterial extends Component {
             image: '',
             active: false,
             dateInativated: new Date(),
+            isActivate: false,
+            dateInativatedSave: new Date(),
             brandItem: [],
         }
 
-        console.log(props);
     }
 
     componentDidMount() {
@@ -37,6 +37,7 @@ export default class EditMaterial extends Component {
                     brand: response.data.brand,
                     image: response.data.image,
                     active: response.data.active,
+                    isActivate: response.data.active,
                     dateInativated: new Date(response.data.dateInativated)
                 })
             })
@@ -64,7 +65,7 @@ export default class EditMaterial extends Component {
 
     onChangeDescription(e) {
         this.setState({
-            desciption: e.target.value
+            description: e.target.value
         })
     }
 
@@ -95,16 +96,14 @@ export default class EditMaterial extends Component {
     onSubmit(e) {
         e.preventDefault();
 
-        const materiais = {
+        var materiais = {
             name: this.state.name,
             description: this.state.description,
             brand: this.state.brand,
             image: this.state.image,
             active: this.state.active,
-            dateInativated: this.state.dateInativated
+            dateInativated: (!this.state.active && this.state.isActivate) ? this.state.dateInativated : this.state.dateInativatedSave
         }
-
-        console.log(this.props.id);
 
         axios.post('http://localhost:5000/material/update/' + this.props.id, materiais)
             .then(res => console.log(res.data));

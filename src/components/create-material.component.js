@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 
@@ -21,6 +20,7 @@ export default class CreateExercise extends Component {
             brand: '',
             image: '',
             active: false,
+            dateInativated: new Date(),
             brandItem: []
         }
 
@@ -82,7 +82,8 @@ export default class CreateExercise extends Component {
             description: this.state.desciption,
             brand: this.state.brand,
             image: this.state.image,
-            active: this.state.active
+            active: this.state.active,
+            dateInativated: this.state.dateInativated
         }
 
         axios.post('http://localhost:5000/material/add', materiais)

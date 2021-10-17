@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default class MaterialList extends Component {
@@ -66,7 +65,7 @@ export default class MaterialList extends Component {
             <div>
                 <h3>Ver materiais</h3>
 
-                <div className="search">
+                <div className="search searchFull">
                     <input type="text" value={this.state.search} onChange={this.onSearch} placeholder="Pesquisar..." />
                 </div>
 
