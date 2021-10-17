@@ -115,7 +115,7 @@ export default class EditMaterial extends Component {
     render() {
         return (
             <div>
-                <h3>Edit Exercise Log</h3>
+                <h3>Editar material</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Nome: </label>
@@ -172,19 +172,8 @@ export default class EditMaterial extends Component {
                         <label class="form-check-label" for="flexSwitchCheckDefault">Ativar?</label>
                     </div>
 
-                    <div className="form-group">
-                        <label>Date: </label>
-                        <div>
-                            <DatePicker
-                                selected={this.state.dateInativated}
-                                onChange={this.onChangeDate}
-                                className="textInput"
-                            />
-                        </div>
-                    </div>
-
                     <div className="form-group mt-2 groupButton">
-                        <input type="submit" value="Adicionar Material" className="btn" />
+                        <input type="submit" value="Editar Material" className="btn" />
                     </div>
                 </form>
             </div>

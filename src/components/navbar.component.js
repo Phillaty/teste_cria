@@ -29,11 +29,6 @@ export default class Navbar extends Component {
 
             <div className="css-navbar">
 
-                <Link to="/usuario" className="css-navbar-item">
-                    <i class="fas fa-user"></i>
-                    <p>Usuário</p>
-                </Link>
-
                 <Link to="/" className="css-navbar-item">
                     <i class="fas fa-palette"></i>
                     <p>Ver materiais</p>
@@ -44,22 +39,17 @@ export default class Navbar extends Component {
                     <p>Administrar materiais</p>
                 </Link>
 
+                <Link to="/brand" className="css-navbar-item">
+                    <i class="fas fa-copyright"></i>
+                    <p>Administrar marcas</p>
+                </Link>
+
                 <Link to="/create" className="css-navbar-item">
                     <i class="fas fa-plus"></i>
                     <p>Cadastrar materiais</p>
-                </Link>
-
-                <Link to="/brand" className="css-navbar-item">
-                    <i class="fas fa-plus"></i>
-                    <p>Cadastrar marca</p>
-                </Link>
-
-                <Link to="/usuario" className="css-navbar-item">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <p>Sair</p>
-                </Link>
+                </Link>                
 
             </div>
         );
     }
-}
+} 

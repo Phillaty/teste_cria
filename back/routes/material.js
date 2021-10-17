@@ -35,6 +35,18 @@ router.route('/:id').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/search/:var').get((req, res) => {
+  Materiais.find({ name: {$regex : req.params.var}})
+    .then(resp => res.json(resp))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/:id').get((req, res) => {
+  Materiais.findById(req.params.id)
+    .then(resp => res.json(resp))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 router.route('/:id').delete((req, res) => {
   Materiais.findByIdAndDelete(req.params.id)
     .then(() => res.json('Material deletado.'))

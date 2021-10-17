@@ -1,7 +1,7 @@
 .corpo{
     padding: 35px;
     backdrop-filter: blur(10px);
-    background: #eeeeee;
+    background: rgb(234, 238, 243);
     margin-left: 8%;
     width: 87%;
     height: 94%;
@@ -12,7 +12,7 @@
 }
 
 .corpo *{
-    color: rgb(37, 37, 37);
+    color: rgb(109, 109, 109);
 }
 
 @media (max-width:1010px) {
@@ -20,3 +20,4 @@
         height: 86%;
     }
 }
+

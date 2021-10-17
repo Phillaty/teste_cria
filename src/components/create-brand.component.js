@@ -90,7 +90,7 @@ export default class CreateBrand extends Component {
     render() {
         return (
             <div className="createBrand">
-                <h3>Criar marca</h3>
+                <h3>Administrar marcas</h3>
                 <div class="duo">
                     <form onSubmit={this.onSubmitt}>
                         <div className="form-group groupClass">
@@ -120,18 +120,30 @@ export default class CreateBrand extends Component {
                     </form>
                 </div>
                 <div className="duo">
-                    <div className="second">
-                        <table className="table table-bordered">
-                            <thead className="thead-light">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {this.brandList()}
-                            </tbody>
-                        </table>
+                    <div className="second tableFix">
+                        {this.state.brands.length > 0 &&
+                                <table className="table table-light table-striped">
+                                    <thead className="thead-light">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                        {this.brandList()}
+                                    </tbody>
+
+
+                                </table>
+                        }
+                        {this.state.brands.length === 0 &&
+                            <p className="notFound">
+                                Nenhum item encontrado :P
+                            </p>
+                        }
                     </div>
                 </div>
             </div>

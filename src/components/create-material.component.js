@@ -88,18 +88,18 @@ export default class CreateExercise extends Component {
             dateInativated: this.state.dateInativated
         }
 
-        axios.post('http://localhost:5000/material/add', materiais)
-            .then(res => console.log(res.data));
+        // axios.post('http://localhost:5000/material/add', materiais)
+        //     .then(res => console.log(res.data));
 
         console.log(materiais);
 
-        window.location = '/';
+        // window.location = '/materiais';
     }
 
     render() {
         return (
             <div>
-                <h3>Criar material</h3>
+                <h3>Adicionar material</h3>
                 <form onSubmit={this.onSubmit} className="createMaterial">
                     <div className="form-group">
                         <label>Nome: </label>
@@ -108,6 +108,7 @@ export default class CreateExercise extends Component {
                             className="form-control textInput"
                             value={this.state.name}
                             onChange={this.onChangename}
+                            placeholder="Insira o nome do material..."
                         />
                     </div>
                     <div className="form-group">
@@ -134,15 +135,18 @@ export default class CreateExercise extends Component {
                             className="form-control textInput"
                             value={this.state.description}
                             onChange={this.onChangeDescription}
+                            placeholder="Insira descrição..."
                         />
                     </div>
                     <div className="form-group">
                         <label>Imagem: </label>
                         <input
                             type="text"
-                            className="form-control textInput"
+                            className="form-control"
+                            placeholder="Link da imagem..."
                             value={this.state.image}
                             onChange={this.onChangeImage}
+
                         />
                     </div>
 
@@ -156,19 +160,8 @@ export default class CreateExercise extends Component {
                         <label class="form-check-label" for="flexSwitchCheckDefault">Ativar?</label>
                     </div>
 
-                    <div className="form-group">
-                        <label>Date: </label>
-                        <div>
-                            <DatePicker
-                                selected={this.state.dateInativated}
-                                onChange={this.onChangeDate}
-                                className="textInput"
-                            />
-                        </div>
-                    </div>
-
                     <div className="form-group mt-2 groupButton">
-                        <input type="submit" value="Adicionar Material" className="btn" />
+                        <input type="submit" value="Adicionar" className="btn" />
                     </div>
                 </form>
             </div>

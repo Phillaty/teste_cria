@@ -26,6 +26,7 @@ const brandRouter = require('./routes/brand');
 app.use('/material', materiaisRouter);
 app.use('/users', usersRouter);
 app.use('/brand', brandRouter);
+app.use('/uploads', express.static('img'));
 
 app.listen(port, () => {
     console.log(`Servidor na porta: ${port}`);
